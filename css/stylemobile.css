@@ -1,0 +1,415 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "brandon";
+  src: url(../font/Brandon_med.otf);
+}
+@font-face{
+  font-family:"brandon_light_it";
+  src: url(../font/Brandon_light_it.otf);
+}
+@font-face{
+  font-family:"brandon_light";
+  src: url(../font/Brandon_light.otf);
+}
+h1 {
+  font-family: "brandon";
+  vertical-align: middle;
+  font-size: 45px;
+  float:left;
+  margin:0px;
+}   
+h3{
+  font-family: "brandon";
+  font-size: 30px;
+  text-align: center;
+  color: #a6989a;
+  margin-bottom:0;
+} 
+h4{
+  text-align:center;
+  font-family: "brandon_light_it";
+  font-size: 30px;
+  margin-bottom:0px;;
+}    
+body {
+  font-size: 100%;
+  font-family:"brandon_light";
+  color: #3d3536;
+  background-color: white;
+}
+body, html {
+  /* important */
+  height: 100%;
+}
+a {
+  color: #b4d7a8;
+  text-decoration: none;
+}
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+.container2 {
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:row;
+  justify-content:flex-start;
+  align-items:stretch;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.left {
+  order:1; 
+  flex-basis:100%; 
+  height:300px;
+}
+.middle {
+  order:3; 
+  flex-basis:100%; 
+  height:300px;
+}
+.right {
+  order:2; 
+  flex-basis:100%; 
+  height:300px;
+}
+.container2 img{
+  margin-left: auto;
+  margin-right: auto; 
+  display:block;
+}
+.container2 p {
+  margin-right: 10px;
+  margin-left: 10px;
+  line-height: 1.3;
+    font-size: 20px;
+
+}
+.steps {
+  color: #a6989a; display:inline;
+  text-align: center;
+  margin-right:auto; margin-left:auto; display:block;
+  margin-bottom: 10px;
+}
+
+
+#square {
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+}
+@media screen and (min-width:600px) {
+   .container2 {
+       flex-wrap:nowrap;
+   } 
+   .container3 {
+       flex-wrap: nowrap;
+   } 
+   
+    .left {
+        flex-basis:1;
+        order:1;
+    }
+    .middle {
+        flex-basis:1;
+        order:2;
+    }
+    .right {
+        flex-basis:1;
+        order:3;
+    }
+     .left2 {
+        flex-basis:1;
+        order:1;
+    }
+    .middle2 {
+        flex-basis:1;
+        order:2;
+    }
+    .right2 {
+        flex-basis:1;
+        order:3;
+    }
+}
+.tutor{
+  color: #ffb9b0;
+}
+.me{
+  color: #ffe0b0;
+}
+.now{
+  color: #b0f7ff;
+}
+section {
+  width: 100%;
+  height: 100%;
+  display: table;
+  position: relative;
+}
+section .wrappy {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 100px 0;
+}
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+.cd-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.cd-header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-header #title {
+  float: left;
+  margin: 13px 0 0 5%;
+}
+.cd-header #cd-logo img {
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  .cd-header {
+    height: 80px;
+  }
+  .cd-header #cd-logo {
+    margin: 23px 0 0 5%;
+  }
+}
+.cd-main-nav {
+  float: right;
+  margin-right: 5%;
+  width: 44px;
+  height: 100%;
+  background: url("../img/cd-icon-menu.svg") no-repeat center center;
+  background-size: 44px 44px;
+  cursor: pointer;
+}
+.cd-main-nav ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.cd-main-nav ul.is-visible {
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  -o-transform: translateY(50px);
+  transform: translateY(50px);
+}
+.cd-main-nav a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 5%;
+  background: #2f292a;
+  border-top: 1px solid #453c3d;
+  color: #8e7d7f;
+}
+@media only screen and (min-width: 768px) {
+  .cd-main-nav {
+    width: auto;
+    height: auto;
+    background: none;
+    cursor: auto;
+  }
+  .cd-main-nav ul {
+    position: static;
+    width: auto;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    line-height: 70px;
+  }
+  .cd-main-nav ul.is-visible {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+  .cd-main-nav li {
+    display: inline-block;
+    margin-left: 1em;
+  }
+  .cd-main-nav a {
+    display: inline-block;
+    height: auto;
+    line-height: normal;
+    background: transparent;
+    padding: .6em 1em;
+    border-top: none;
+    color: #3d3536;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+  .no-touch .cd-main-nav a:hover {
+    color: #ffb0f7;
+  }
+}
+.cd-main-content {
+  /* you need to assign a min-height to the main content so that the children can inherit it*/
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.cd-fixed-bg {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 1;
+}
+.cd-fixed-bg h1, .cd-fixed-bg h2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 90%;
+  max-width: 1170px;
+  text-align: center;
+  font-size: 30px;
+  font-size: 1.875rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+.cd-fixed-bg {
+  background-attachment: fixed;
+}
+.cd-fixed-bg.cd-bg-1 {
+  background-image: url("../img/63.jpg");
+}
+.cd-fixed-bg.cd-bg-2 {
+  background-image: url("../img/pen-writing-notes-studying.jpg");
+}
+.cd-fixed-bg.cd-bg-3 {
+  background-image: url("../img/59.jpg");
+}
+.cd-fixed-bg.cd-bg-4 {
+  background-image: url("../img/57.jpg");
+}
+@media only screen and (min-width: 768px) {
+  .cd-fixed-bg h1, .cd-fixed-bg h2 {
+    font-size: 36px;
+  }
+
+}
+@media only screen and (min-width: 1170px) {
+  .cd-fixed-bg {
+    background-attachment: fixed;
+    min-height: 100%;
+  }
+  .cd-fixed-bg h1, .cd-fixed-bg h2 {
+    font-size: 48px;
+    font-weight: 300;
+  }
+}
+.cd-scrolling-bg {
+  position: relative;
+  min-height: 100%;
+  padding: 4em 0;
+  line-height: 1.6;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.cd-scrolling-bg.cd-color-1 {
+  background-color:  #b0f7ff;
+  color: #a6989a;
+}
+.cd-scrolling-bg.cd-color-2 {
+  background-color: #ffb9b0;
+  color: #3d3536;
+}
+.cd-scrolling-bg.cd-color-3 {
+  background-color: #ffe0b0;
+  color: #3d3536;
+}
+@media only screen and (min-width: 768px) {
+  .cd-scrolling-bg {
+    padding: 8em 0;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 2;
+    font-weight: 300;
+  }
+}
+#curtain{
+  opacity:0.6;
+  background-color: #fff;
+  width:250px;
+  height:250px;
+  display:block;
+  -webkit-transition: top .2s ease-out;
+    -moz-transition: top .2s ease-out;
+    -o-transition: top .2s ease-out;
+       transition: top .2s ease-out;
+    transition-property: top;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    transition-delay: initial; 
+    position: absolute;
+}
+#vertcontent{
+  position:relative;
+  display: inline-block;
+}
+#vertcontent span{
+  vertical-align: middle;
+  text-align: center;
+  font-size:25px;
+  display: inline-block;
+}
+#curtain:hover{
+opacity:0;}
